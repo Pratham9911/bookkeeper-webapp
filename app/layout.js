@@ -1,4 +1,5 @@
 // app/layout.js
+import Sidebar from './components/sidebar';  // Corrected import to match the filename
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -25,10 +26,13 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="icon" href="/applogo.png" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="min-h-screen bg-gray-100">
+        <div className="flex">
+          <Sidebar />  {/* Corrected to use the uppercase 'Sidebar' */}
+          <main className="flex-1 p-8 overflow-y-auto">
+            {children}  {/* This is where the page content will be injected */}
+          </main>
+        </div>
       </body>
     </html>
   );
