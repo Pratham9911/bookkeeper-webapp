@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Dashboard() {
   return (
     <div className="min-h-screen flex bg-gray-100">
@@ -10,12 +12,12 @@ export default function Dashboard() {
 
         {/* Scrollable Nav */}
         <nav className="flex-1 overflow-y-auto p-6 space-y-4">
-          <a href="#" className="hover:bg-purple-600 p-2 rounded block">Dashboard</a>
-          <a href="#" className="hover:bg-purple-600 p-2 rounded block">Invoices</a>
-          <a href="#" className="hover:bg-purple-600 p-2 rounded block">Clients</a>
-          <a href="#" className="hover:bg-purple-600 p-2 rounded block">Reports</a>
-          <a href="#" className="hover:bg-purple-600 p-2 rounded block">Settings</a>
-        </nav>
+          <Link href="/dashboard" className="hover:bg-purple-600 p-2 rounded block">Dashboard</Link>
+  <Link href="/invoices" className="hover:bg-purple-600 p-2 rounded block">Invoices</Link>
+  <Link href="/#" className="hover:bg-purple-600 p-2 rounded block">Clients</Link>
+  <Link href="/#" className="hover:bg-purple-600 p-2 rounded block">Reports</Link>
+  <Link href="/#" className="hover:bg-purple-600 p-2 rounded block">Settings</Link>
+ </nav>
       </aside>
 
       {/* Main Content */}

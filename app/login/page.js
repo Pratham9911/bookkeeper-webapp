@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-100 to-purple-100">
@@ -22,12 +24,15 @@ export default function LoginPage() {
               placeholder=""
             />
           </div>
-          <button
+          <Link href="/dashboard" passHref>
+            <button
             type="submit"
             className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition font-semibold"
           >
             Log In
           </button>
+          </Link>
+         
         </form>
       </div>
     </main>
