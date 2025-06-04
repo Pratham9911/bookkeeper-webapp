@@ -1,14 +1,9 @@
 "use client";
- import '@fortawesome/fontawesome-free/css/all.min.css';
-
-
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 export default function Invoices() {
   const [invoices, setInvoices] = useState([
-    { id: 1, client: "John Doe", amount: "$500", dueDate: "2025-06-10" },
-    { id: 2, client: "Jane Smith", amount: "$300", dueDate: "2025-06-15" },
-    { id: 3, client: "Sarah Lee", amount: "$1200", dueDate: "2025-06-20" },
+    
   ]);
 
   const [newInvoice, setNewInvoice] = useState({
@@ -17,9 +12,23 @@ export default function Invoices() {
     dueDate: "",
   });
 
-  const handleDelete=(indexToDelete)=>{
-    setInvoices(invoices.filter((_, index) => index !== indexToDelete));
-  }
+  useEffect(()=>{
+     const storedInvoices = JSON.parse(localStorage.getItem('invoices'));
+      if (storedInvoices) {
+        setInvoices(storedInvoices);
+      }
+    
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem('invoices', JSON.stringify(invoices));
+  }, [invoices]);
+
+  const handleDelete = (index) => {
+    const updated = [...invoices];
+    updated.splice(index, 1);
+    setInvoices(updated);
+  };
   const handleChange = (e) => {
     setNewInvoice({ ...newInvoice, [e.target.name]: e.target.value });
   };
