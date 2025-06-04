@@ -22,7 +22,7 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="flex-1 p-8">
-        <h1 className="text-3xl font-bold text-purple-700">Welcome, Pratham 👋</h1>
+        <h1 className="text-3xl font-bold text-purple-700">Welcome</h1>
         <p className="mt-4 text-gray-700">Here&apos;s a quick overview of your bookkeeping dashboard.</p>
         {/* Later: Add charts, invoice cards, recent activity etc */}
       </main>
